@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>用户登录</title>
+
+<link th:href="@{~/static/css/login.css}" rel="stylesheet" type="text/css"  />
+<script th:src="@{/static/js/jquery.min.js}"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="keywords"
+	content="Lambent Login Form Responsive, Login Form Web Template, Flat Pricing Tables, Flat Drop-Downs, Sign-Up Web Templates, Flat Web Templates, Login Sign-up Responsive Web Template, Smartphone Compatible Web Template, Free Web Designs for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design">
+<script type="application/x-javascript">
+	addEventListener("load", function() {
+		setTimeout(hideURLbar, 0);
+	}, false);
+	function hideURLbar() {
+		window.scrollTo(0, 1);
+	}
+</script>
+</head>
+<body>
+	<h1>轻轻摇曳的登录表单</h1>
+	<div class="main-agileinfo">
+		<h2>现在登录 </h2>
+		<!-- <form action="#" th:action="@{/dologin}" method="post"> -->
+		<form action="#" th:action="@{/syslog/addlog}" method="post">
+		
+			<input type="text" name="username"  class="name" placeholder="用户" 
+				required="required" value="du1">
+				<input type="text" name="logtype"  class="name" placeholder="类型" 
+				required="required" value="4">
+				<input type="text" name="content"  class="name" placeholder="内容" 
+				required="required" value="">
+				<input type="text" name="username"  class="name" placeholder="用户" 
+				required="required" value="du1"> 
+			<input type="password" name="password" 
+				class="password" placeholder="密码" required="required" value="123" >
+			<!-- <input  type="text" name="validateCode" id="validateCode" class="validatecodeinput" placeholder="验证码" required="required"/>
+			<a href="javascript:void(0);">
+                    <img src="/getCaptchaImage" onclick="this.src='/getCaptchaImage?'+Math.random()"/>
+                </a> -->
+			<ul>
+				<li><input type="checkbox" id="brand1" name="rememberMe" value="true"> <label
+					for="brand1"><span></span>记得我</label></li>
+			</ul>
+			<a href="#">忘记密码? </a><br>
+			<div class="clear"> <h1 style="font-size:16px;color: red;float:center" th:text="${error}" ></h1> </div>
+			<input type="submit" value="Login">
+		</form>
+		
+	</div>
+	<div class="footer-w3l">
+		<p class="agile">© 2020 广州宏湃信息技术有限公司</p>
+	</div>
+
+</body>
+<script th:inline="javascript">var ctx = [[@{/}]];</script>
+<script th:inline="javascript">
+    function login() {
+        var account = $("input[name='account']").val();
+        var password = $("input[name='password']").val();
+        var rememberMe = $("input[name='rememberMe']").is(':checked');
+        $.ajax({
+            type: "post",
+            url: ctx + "login",
+            data: {
+                "account": account,
+                "password": password,
+                "rememberMe": rememberMe
+            },
+            success: function(r) {
+                if (r.code == 100) {
+                    location.href = ctx + 'index';
+                } else {
+                    alert(r.message);
+                }
+            }
+        });
+    }
+</script>
+</html>

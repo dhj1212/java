@@ -1,0 +1,23 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"></html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title1</title>
+</head>
+<body>
+    <h1>home88！！！</h1>
+    <h1 th:text="12"></h1>
+    <h1 th:text="34"></h1>
+     <div>
+     	<a th:href="@{/elink/downloadAttachment(fileid='1')}">下载</a>
+	            <a th:href="@{/elink/downloadAttachment(fileid='1',openStyle='inline')}">预览</a>
+	             <a th:href="@{/elink/downloadAttachment(fileid='3',openStyle='inline')}">预览PDF</a>
+	             <a th:href="@{/elink/downloadAttachment(fileid='2',openStyle='inline')}">在线打开</a>
+	            <a th:href="@{/elink/downloadAttachment(fileid='1596100154809')}">下载1</a>
+	            <a th:href="@{/elink/downloadAttachment(fileid='1596100154809',openStyle='inline')}">在线打开2</a>
+     </div>
+     
+</body>
+</html>
