@@ -25,7 +25,7 @@ public interface IcxfWB
 
 	/**
 	 * 
-	 * @param data
+	 * @param data杀杀杀3
 	 * @param vssid
 	 * @param token
 	 * @return returns java.lang.String
